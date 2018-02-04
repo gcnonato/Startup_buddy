@@ -11,8 +11,5 @@ if (!$conn) {
 }
 //else{
 //echo "Connected successfully";}
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> 1e7eb4fb61b2eea837f413b9c9829db9d7660043
