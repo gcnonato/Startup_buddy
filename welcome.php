@@ -32,59 +32,24 @@
 	<h3> Welcome to Startup Buddy </h3>
    </header>
 
-<!-- Trigger/Open The Modal -->
-<button id="Login">Login</button>
 
-<button id="Register">Register</button>
+<button id="Login" class="float-left submit-button" >Login</button>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span> <br><br>
-    </div>
-    <div class="modal-body">
-     <form class="form" action="" method="post" >
-    <input type="button" id="login1" name="login1" value="I need a Photographer">
-	<p align="centre" style="font-size:20px "> ----------------or---------------- </p>
-	<input type="button" id="register" name="register" value="I am a Photographer">
-    </form>
-	<br>
-    </div>
-    
-  </div>
-
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("Login");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+<script type="text/javascript">
+    document.getElementById("Login").onclick = function () {
+        location.href = "login.html";
+    };
 </script>
+
+<button id="Register" class="float-left submit-button" >Register</button>
+
+<script type="text/javascript">
+    document.getElementById("Register").onclick = function () {
+        location.href = "register.php";
+    };
+</script>
+
+
 
 </body>
 </html>
