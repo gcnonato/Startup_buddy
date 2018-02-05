@@ -1,0 +1,44 @@
+html {
+    
+	margin-left: 15px;
+	margin-right: 10px;
+	height: 100%;
+	text-align: center;
+}
+
+body {
+	
+  font-family: "Snell Roundhand";
+  background: url('../image/Elegant_Background-1.jpg') ; 
+}
+
+header {
+	color: #000066;
+	text-shadow: 3px 2px white;
+}
+
+h1 {
+	font-size: 200px;
+}
+
+h3 {
+	font-size: 50px;	
+}
+
+
+#Login,#Register {
+    background-color: #000066 ; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#Register:hover,#Login:hover {
+cursor:pointer;
+text-decoration:none;
+}
+
