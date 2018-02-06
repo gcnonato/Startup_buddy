@@ -1,3 +1,16 @@
+<?php
+session_start();
+include_once 'connect.php';
+
+if (!isset($_SESSION['userSession'])) {
+  header("Location: index.php");
+}
+
+$query = $DBcon->query("SELECT * FROM tbl_users WHERE user_id=".$_SESSION['userSession']);
+$userRow=$query->fetch_array();
+$DBcon->close();
+
+?>
 <!DOCTYPE html>
 
 <head>
@@ -31,22 +44,10 @@
 	</h1>
 	<h3> Welcome to Startup Buddy </h3>
    </header>
+<font size="5px" color="black" style="float:right"><span class="glyphicon glyphicon-user"></span> Hello <?php echo $userRow['username'];?></font>
 
+<button  class="button" onclick="window.location.href='logout.php?logout'" /><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</button>
 
-<button id="Login" class="float-left submit-button" >Login</button>
-
-<script type="text/javascript">
-    document.getElementById("Login").onclick = function () {
-        location.href = "login.html";
-    };
-</script>
-
-<button id="Register" class="float-left submit-button" >Register</button>
-
-<script type="text/javascript">
-    document.getElementById("Register").onclick = function () {
-        location.href = "register.php";
-    };
 </script>
 
 
