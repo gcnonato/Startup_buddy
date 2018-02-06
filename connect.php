@@ -1,15 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
-$db=mysqli_select_db($conn, "startup_buddy") or die('MYSQL DATABASE ERROR');
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . $conn->connect_error);
-}
-//else{
-//echo "Connected successfully";}
+
+  $DBhost = "localhost";
+  $DBuser = "root";
+  $DBpass = "";
+  $DBname = "startup_buddy";
+  
+  $DBcon = new MySQLi($DBhost,$DBuser,$DBpass,$DBname);
+    
+     if ($DBcon->connect_errno) {
+         die("ERROR : -> ".$DBcon->connect_error);
+     }
 
 ?>
