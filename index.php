@@ -15,17 +15,17 @@ if (isset($_POST['btn-login'])) {
 	$email = $DBcon->real_escape_string($email);
 	$password = $DBcon->real_escape_string($password);
 	
-	$query = $DBcon->query("SELECT user_id, email, password FROM tbl_users WHERE email='$email'");
+	$query = $DBcon->query("SELECT register_id, email, password FROM register WHERE email='$email'");
 	$row=$query->fetch_array();
 	
 	$count = $query->num_rows; // if email/password are correct returns must be 1 row
 	
 	if (password_verify($password, $row['password']) && $count==1) {
-		$_SESSION['userSession'] = $row['user_id'];
+		$_SESSION['userSession'] = $row['register_id'];
 		header("Location: welcome.php");
 	} else {
 		$msg = "<div class='alert alert-danger'>
-					<span class='glyphicon glyphicon-info-sign'></span> &nbsp; Invalid Username or Password !
+					<span class='glyphicon glyphicon-info-sign'></span> &nbsp; Invalid Email or Password !
 				</div>";
 	}
 	$DBcon->close();
@@ -39,7 +39,7 @@ if (isset($_POST['btn-login'])) {
 <title>Startup Buddy</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
-<link rel="stylesheet" href="style.css" type="text/css" />
+
 </head>
 <body>
 
@@ -75,7 +75,6 @@ if (isset($_POST['btn-login'])) {
 			</button> &nbsp;&nbsp;&nbsp;
              <a href="welcome.html" class="btn btn-default" style="float:right;">Cancel</a>
             <a href="register.php" class="btn btn-default">Sign UP Here</a>
-            
         </div>  
         
         
