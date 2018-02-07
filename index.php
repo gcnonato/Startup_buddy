@@ -35,7 +35,6 @@ if (isset($_POST['btn-login'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="cheap car deals, hire car deals, best hire car deals, car vendors, cheap cars, car rentals com, rental car sales, car rental, car rentals">
 <title>Startup Buddy</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
