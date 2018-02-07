@@ -113,7 +113,7 @@ if(isset($_POST['btn-signup'])) {
 	<div class="container">
      
         
-       <form class="form-signin" method="post" id="register-form">
+       <form class="form-signin"  method="post" id="register-form">
       
         <h2 class="form-signin-heading">Sign Up</h2><hr />
         
@@ -138,9 +138,7 @@ if(isset($_POST['btn-signup'])) {
 
         <div class="form-group">
           <label class="form-control" for="dob">Date of birth:
-          <input class="form-control" type="text" id="dob" name="dob" required >
-          <div class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar"></span>
+          <input type="date" id="dob" name="dob" required >
         </label>
     </div>
 
