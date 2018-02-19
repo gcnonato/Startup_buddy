@@ -7,30 +7,30 @@ require_once 'connect.php';
 
 if(isset($_POST['btn-signup'])) {
 	
-	$name = strip_tags($_POST['name']);
+	$uname = strip_tags($_POST['username']);
 	$email = strip_tags($_POST['email']);
 	$contact = strip_tags($_POST['contact']);
 	$dob = strip_tags($_POST['dob']);
 	$type = strip_tags($_POST['type']);
-	$password = strip_tags($_POST['password']);
+	$upass = strip_tags($_POST['password']);
 	$confirm_password = strip_tags($_POST['confirm_password']);
-	
-	$name = $DBcon->real_escape_string($name);
+
+	$uname = $DBcon->real_escape_string($uname);
 	$email = $DBcon->real_escape_string($email);
 	$contact = $DBcon->real_escape_string($contact);
 	$dob = $DBcon->real_escape_string($dob);
 	$type = $DBcon->real_escape_string($type);
-	$password = $DBcon->real_escape_string($password);
+	$upass = $DBcon->real_escape_string($upass);
 	$confirm_password = $DBcon->real_escape_string($confirm_password);
 	
-	$hashed_password = password_hash($password, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
+	$hashed_password = password_hash($upass, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
 	
-	$check_email = $DBcon->query("SELECT email FROM register WHERE email='$email'");
+	$check_email = $DBcon->query("SELECT email FROM tbl_users WHERE email='$email'");
 	$count=$check_email->num_rows;
 	
 	if ($count==0) {
 		
-		$query = "INSERT INTO register(Name,Email,Contact,DOB,Type,Password) VALUES('$name','$email','$contact','$dob','$type','$hashed_password')";
+		$query = "INSERT INTO tbl_users(username,email,contact,dob,type,password) VALUES('$uname','$email','$contact','$dob','$type','$hashed_password')";
 
 		if ($DBcon->query($query)) {
 			$msg = "<div class='alert alert-success'>
@@ -58,11 +58,11 @@ if(isset($_POST['btn-signup'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  
+  <meta name="Keywords" content="cheap car deals, hire car deals, best hire car deals, car vendors, cheap cars, car rentals com, rental car sales, car rental, car rentals">
 <title>Login & Registration</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
-
+<link rel="stylesheet" href="style.css" type="text/css" />
 <style >
 	
 
@@ -113,7 +113,7 @@ if(isset($_POST['btn-signup'])) {
 	<div class="container">
      
         
-       <form class="form-signin"  method="post" id="register-form">
+       <form class="form-signin" method="post" id="register-form">
       
         <h2 class="form-signin-heading">Sign Up</h2><hr />
         
@@ -124,36 +124,32 @@ if(isset($_POST['btn-signup'])) {
 		?>
           
         <div class="form-group">
-        <input type="text" class="form-control" placeholder="Name" id="name" name="name" required  />
+        <input type="text" class="form-control" placeholder="Name" name="username" required  />
        </div>
      
         <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email address" id="email" name="email" required  />
+        <input type="email" class="form-control" placeholder="Email address" name="email" required  />
         <span id="check-e"></span>
         </div>
 
-		<div class="form-group">
-        <input type="tel" class="form-control" placeholder="Contact Number" id="contact" name="contact" required  />
-        </div>
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Contact Number" name="contact" required  />
+       </div>
+     
+        <div class="form-group">
+        	<label for="dob" >Date of Birth:&nbsp;</label>
+        <input type="date"  name="dob" style="width: 25%" required  />
+       </div>
+     
+     <div class="form-group">
+        	<label for="type" >Type of Signup:&nbsp;</label>
+        <input type="radio"  name="type" value="Startup Planner" required  />Startup Planner &nbsp; &nbsp;
+        <input type="radio"  name="type" value="Intern" required  />Intern &nbsp; &nbsp;
+       </div>
 
         <div class="form-group">
-          <label class="form-control" for="dob">Date of birth:
-          <input type="date" id="dob" name="dob" required >
-        </label>
-    </div>
-
-      </div>
-
-          <div class="form-group">
-          <label class="form-control" for="type" >Type of signup: &nbsp; &nbsp;
-		  <input  type="radio" id="type"  name="type" value="Startup_Planner" ">Startup Planner &nbsp;&nbsp;
-		  <input  type="radio" id="type" name="type" value="Intern" >Intern
-		  </label>
-		</div>
-
-        
-        <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  />
+        <input type="password" class="form-control" placeholder="Password" id="password" name="password"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  />
         </div>
 
         <input type="checkbox" onclick="myFunction()">Show Password
@@ -166,14 +162,15 @@ if(isset($_POST['btn-signup'])) {
         x.type = "password";
         }
         }
-</script>
+		</script><br><br>
 
-<div class="form-group">
-	<input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" name="confirm_password" onkeyup="checkPass(); return false;" required  />
-       	   <span id="confirmMessage" class="confirmMessage"></span><br>
-		 </div>
-		  
-<script type="text/javascript">
+		<div class="form-group">
+        <input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" name="confirm_password"
+        onkeyup="checkPass(); return false;" required  />
+        <span id="confirmMessage" class="confirmMessage"></span>
+        </div>
+
+        <script type="text/javascript">
 	function checkPass()
 {
     //Store the password field objects into variables ...
@@ -286,10 +283,6 @@ myInput.onkeyup = function() {
   }
 }
 </script>
-
-
-  </div>
-
 
 
 
