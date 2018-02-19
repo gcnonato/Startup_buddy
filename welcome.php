@@ -45,11 +45,13 @@ $DBcon->close();
 	<h3> Welcome to Startup Buddy </h3>
    </header>
 <font size="5px" color="black" style="float:right"><span class="glyphicon glyphicon-user"></span> Hello <?php echo $userRow['username'];?></font>
+&nbsp;&nbsp;
 
-<button  class="button" onclick="window.location.href='logout.php?logout'" /><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</button>
+<button  class="button" style="float: right;" onclick="window.location.href='logout.php?logout'" /><span class="glyphicon glyphicon-log-out">
+</span>&nbsp;Logout</button>
 
-</script>
-
+<button  class="button" style="float: left;" onclick="window.location.href='naming.php'" /><span >
+</span>&nbsp;Naming</button>
 
 
 </body>
