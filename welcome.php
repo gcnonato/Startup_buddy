@@ -18,7 +18,6 @@ $DBcon->close();
  <meta charset="UTF-8">
   <meta name="description" content="Startup Buddy">
   <meta name="keywords" content="Startup, naming, domain purchaser, logo, marketing, internship, success rate">
-  <meta name="author" content="Krima">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Custom Fonts -->
@@ -44,15 +43,19 @@ $DBcon->close();
 	</h1>
 	<h3> Welcome to Startup Buddy </h3>
    </header>
-<font size="5px" color="black" style="float:right"><span class="glyphicon glyphicon-user"></span> Hello <?php echo $userRow['username'];?></font>
-&nbsp;&nbsp;
-
-<button  class="button" style="float: right;" onclick="window.location.href='logout.php?logout'" /><span class="glyphicon glyphicon-log-out">
+   <button  class="button" style="float: right;" onclick="window.location.href='logout.php?logout'" />
+   <span class="glyphicon glyphicon-log-out">
 </span>&nbsp;Logout</button>
+<font size="5px" color="black" style="float: right; margin-right:2em" ><span class="glyphicon glyphicon-user"></span> 
+  Hello <?php echo $userRow['username'];?></font>
 
-<button  class="button" style="float: left;" onclick="window.location.href='naming.php'" /><span >
+<button  class="button" style="float: left; margin-left:2em; margin-right:2em" onclick="window.location.href='welcome.php'" /><span >
+</span>&nbsp;Home</button>
+
+<button  class="button" style="float: left; margin-left:1em " onclick="window.location.href='naming.php'" /><span >
 </span>&nbsp;Naming</button>
 
 
 </body>
 </html>
+
