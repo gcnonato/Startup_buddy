@@ -27,7 +27,7 @@ $email = $DBcon->real_escape_string($email);
 $password = $DBcon->real_escape_string($password);
 	
 	
-$query = $DBcon->query("SELECT user_id, email, password FROM tbl_users WHERE email='$email'");
+$query = $DBcon->query("SELECT user_id, email, password FROM register WHERE email='$email'");
 	
 $row=$query->fetch_array();
 	
@@ -63,7 +63,7 @@ $DBcon->close();
 <head>
 
 
-<title>YourRide</title>
+<title>Startup Buddy</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
@@ -83,7 +83,7 @@ $DBcon->close();
 
 <form class="form-signin" method="post" id="login-form">
 
-<h2 class="form-signin-heading">Sign In.</h2>
+<h2 class="form-signin-heading">Login.</h2>
 <hr/>
 
 <?php
@@ -122,7 +122,7 @@ echo $msg;
              
 <a href="welcome.html" class="btn btn-default" style="float:right;">Cancel</a>
             
-<a href="register.php" class="btn btn-default">Sign UP Here</a>
+<a href="register.php" class="btn btn-default">Register Here</a>
             
         
 </div>  
