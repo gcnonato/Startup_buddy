@@ -6,7 +6,7 @@ if (!isset($_SESSION['userSession'])) {
   header("Location: index.php");
 }
 
-$query = $DBcon->query("SELECT * FROM tbl_users WHERE user_id=".$_SESSION['userSession']);
+$query = $DBcon->query("SELECT * FROM register WHERE user_id=".$_SESSION['userSession']);
 $userRow=$query->fetch_array();
 $DBcon->close();
 
@@ -58,4 +58,3 @@ $DBcon->close();
 
 </body>
 </html>
-
