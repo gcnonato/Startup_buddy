@@ -25,12 +25,12 @@ if(isset($_POST['btn-signup'])) {
 	
 	$hashed_password = password_hash($upass, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
 	
-	$check_email = $DBcon->query("SELECT email FROM tbl_users WHERE email='$email'");
+	$check_email = $DBcon->query("SELECT email FROM register WHERE email='$email'");
 	$count=$check_email->num_rows;
 	
 	if ($count==0) {
 		
-		$query = "INSERT INTO tbl_users(username,email,contact,dob,type,password) VALUES('$uname','$email','$contact','$dob','$type','$hashed_password')";
+		$query = "INSERT INTO register(username,email,contact,dob,type,password) VALUES('$uname','$email','$contact','$dob','$type','$hashed_password')";
 
 		if ($DBcon->query($query)) {
 			$msg = "<div class='alert alert-success'>
