@@ -1,45 +1,20 @@
 <?php
-session_start();
-include_once 'connect.php';
 
-if (!isset($_SESSION['userSession'])) {
-  header("Location: index.php");
-}
-
-$query = $DBcon->query("SELECT * FROM register WHERE user_id=".$_SESSION['userSession']);
-$userRow=$query->fetch_array();
-$DBcon->close();
+include_once 'header.php';
 
 ?>
 
 <html>
 <head>
-<meta charset="UTF-8">
-  <meta name="description" content="Startup Buddy">
-  <meta name="keywords" content="Startup, naming, domain purchaser, logo, marketing, internship, success rate">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naming</title>
+<style>
 
-    <!-- Custom Fonts -->
-    
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-   
-   <!-- home -->
-   <link rel="stylesheet" href="css/welcomecss.css">
-
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-</head>
-   <body>
-      <style type="text/css">
-      #myForm
+#myForm
       {
-         margin: 0 auto;
+         margin: 0 400px;
       }
-      </style>
-      <script language = "javascript" type = "text/javascript">
+  </style>
+    <script language = "javascript" type = "text/javascript">
          
             //Browser Support Code
             function ajaxFunction(){
@@ -83,30 +58,31 @@ $DBcon->close();
             }
         
       </script>
-
-      <h1 > Startup Buddy
-   </h1>
-   <h3> Welcome to Startup Buddy </h3>
-   </header>
-  <button  class="button" style="float: right;" onclick="window.location.href='logout.php?logout'" />
-   <span class="glyphicon glyphicon-log-out">
-</span>&nbsp;Logout</button>
-<font size="5px" color="black" style="float: right; margin-right:2em" ><span class="glyphicon glyphicon-user"></span> 
-  Hello <?php echo $userRow['username'];?></font>
-
-<button  class="button" style="float: left; margin-left:2em; margin-right:2em" onclick="window.location.href='welcome.php'" /><span >
-</span>&nbsp;Home</button>
-
-<br><br><br>
-
+<body>
+   
 		
       <form id = 'myForm'>
-          <input type = 'text' id = 'names' name='names'/>
+          <input type = 'text' id = 'names' name='names' style="width: 50%;"
+           placeholder="Enter name of your brand eg.purse"/>
          
-			 <input type = 'button' onclick = 'ajaxFunction()' value = ' Generate Names'/>
+			 <input type = 'button' onclick = 'ajaxFunction()' value = ' Get Your Own Domain Name'/>
+    <br><br>
 			
       </form>
       
-      <div id = 'ajaxDiv'></div>
+      <div id = 'ajaxDiv'>
+<p style="text-align:center"> The secret to naming a business is a name that serves as an extension of your brand.</p>
+<p style="text-align:center">Some startups focus on affordability, while other focus on high quality product or service.</p>
+<p style="text-align:center">The aspects of your business, also known as your branding and positioning, are more important to your naming process than your vertical.
+</p>
+<p style="text-align:center">Think about it, a lot of startups today have catchy names while the more high-end ones have classic names.
+</p>
+
+      </div>
+      <br><br>
+      <?php
+include_once 'footer.php';
+?>
+
    </body>
 </html>
