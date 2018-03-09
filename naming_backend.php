@@ -5,6 +5,7 @@ table,th,td {
   border : 1px solid black;
   border-collapse: collapse;
   margin: 0 auto;
+ color: black;
 }
 th,td {
   padding: 5px;
@@ -33,7 +34,7 @@ $userRow=$query->fetch_array();
     $names = $_GET['names'];
     }
    // Escape User Input to help prevent SQL Injection
-   $names = mysqli_real_escape_string($names);
+   //$names = mysqli_real_escape_string($names);
    
    
 //PHP array containing domain names.
@@ -71,7 +72,7 @@ $domainnames = array(
     '.ae.org',
     '.kr.com',
     '.us.com',
-    '.qc.com',
+    '.qa.com',
     '.de.com',
     '.gb.net',
     '.no.com',
@@ -112,59 +113,59 @@ $domaindesc = array(
     'Name Domain',
     'United States Domain',
     'Information Domain',
-    '.in',
-    '.co.in',
-    '.net.in',
-    '.club',
-    '.blog',
-    '.design',
-    '.shop',
+    'Indian Domain',
+    'Second Level Domain under .IN Available for organization',
+    'Second Level Domain under .IN Available for organization',
+    'Groups, Organizations, Assemblies, Communities, General Domain',
+    'Blogs Domain',
+    'Graphic Art and Fashion Domain',
+    'Shops, Shopping Domain',
     'Education Domain',
-    '.org.in',
-    '.site',
-    '.online',
-    '.firm.in',
-    '.gen.in',
-    '.ind.in',
+    'Second Level Domain under .IN Available for organization',
+    'General Domain',
+    'Generic Domain',
+    'Second Level Domain under .IN Available for organization',
+    'Second Level Domain under .IN Available for organization',
+    'Second Level Domain under .IN Available for organization',
     'European Union Domain',
     'Mobile Domain',
     'Mongolia Domain',
-    'Belize Do',
+    'Belize Domain',
     'Cocos (Keeling) Islands Domain',
     'Television Domain',
-    '.eu.com',
-    '.gb.com',
-    '.ae.org',
-    '.kr.com',
-    '.us.com',
-    '.qc.com',
-    '.de.com',
-    '.gb.net',
-    '.no.com',
-    '.hu.com',
-    '.jpn.com',
-    '.uy.com',
-    '.za.com',
-    '.br.com',
-    '.cn.com',
-    '.sa.com',
-    '.se.com',
-    '.se.net',
-    '.uk.com',
-    '.uk.net',
-    '.ru.com',
+    'European Union Commercial Domain',
+    'Great Britain Commercial Domain',
+    'United Arab Emirates Oraganizational Domain',
+    'Korea Republic Commercial Domain',
+    'United States Commercial Domain',
+    'Qatar Commercial Domain',
+    'Deutschland Commercial Domain',
+    'Great Britain Network Domain',
+    'Norway Commercial Domain',
+    'Hungary Commercial Domain',
+    'Japan Commercial Domain',
+    'Uruguay Commercial Domain',
+    'Zuid-Afrika Commercial Domain',
+    'Brazil Commercial Domain',
+    'People Republic of China Commercial Domain',
+    'Saudi Arabia Commercial Domain',
+    'Sweden Commercial Domain',
+    'Sweden Network Domain',
+    'Commercial UK Domain',
+    'UK Network Domain',
+    'Russain Domain',
     'Samoa Domain',
-    '.co.uk',
-    '.org.uk',
-    '.me.uk',
+    'Commercial/ General Domain used in UK',
+    'Non-profit Organizations Domain used in UK',
+    'Personal Domain used in UK',
     'Montenegro Domain',
-    '.ca',
-    '.ac',
-    '.academy',
+    'Canadain Domain',
+    'Ascension Island Domain',
+    'Academic Institutes Domain   ',
     'United Arab Emirates Domain',
-    '.africa',
-    '.ag',
-    '.art'
+    'African Domain',
+    'Antigua and Barbuda Domain',
+    'Artists, Museums, Art Galleries Domain'
 
 );
 
@@ -180,13 +181,12 @@ $domaindesc = array(
   $r= $names.$domain;
     $check_name = $DBcon->query("SELECT name FROM naming WHERE name='$r'");
     $count=$check_name->num_rows;
-    
-    echo '      
+     echo '      
    <tr>             
    <td>'.$r.'</td> 
    <td>'.$desc.'</td>  
     <td>';if ($count==0) {
-       echo "<a href='naming.php'>Available</a>";
+       echo "<a href='domain.php'>Available</a>";
  
         }
         else 
