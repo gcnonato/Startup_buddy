@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2018 at 12:49 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Generation Time: Mar 04, 2018 at 07:08 PM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.0.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,10 +28,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `naming`
 --
 
-CREATE TABLE IF NOT EXISTS `naming` (
+CREATE TABLE `naming` (
   `name_id` int(11) NOT NULL,
   `name` varchar(37) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `naming`
@@ -177,10 +179,67 @@ INSERT INTO `naming` (`name_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `predict`
+--
+
+CREATE TABLE `predict` (
+  `predict_id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `fashion` varchar(3) DEFAULT NULL,
+  `sports` float DEFAULT NULL,
+  `entartainment` float DEFAULT NULL,
+  `health_and_care` float DEFAULT NULL,
+  `food` float DEFAULT NULL,
+  `education` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `predict`
+--
+
+INSERT INTO `predict` (`predict_id`, `name`, `fashion`, `sports`, `entartainment`, `health_and_care`, `food`, `education`) VALUES
+(1, 'Bhavna', '4', 1, 5, 3, 1, 0),
+(2, 'j', '1.2', 0, 0, 0, 0, 0),
+(3, 'k', '1', 0, 0, 0, 0, 0),
+(4, 'q', '1', 0, 0, 0, 0, 0),
+(5, 'q', '5', 0, 0, 0, 0, 0),
+(6, 'a', '', 1, 0, 0, 0, 0),
+(7, 'b', '2', 0, 0, 0, 0, 0),
+(8, 'c', '', 1, 0, 0, 0, 0),
+(9, 'sid', '2', 2, 2, 2, 5, 0),
+(10, 'krima', '2', 1, 3, 4, 2, 0),
+(11, 'aaaa', '', 0, 0, 0, 0, 0),
+(12, 'kkk', '3', 2, 3, 1, 3, 0),
+(13, 'aaaaaa', '', 2, 0, 0, 0, 0),
+(14, 'bbb', '', 1, 2, 2, 2, 0),
+(15, 'ab', '1', 1, 0, 1, 1, 0),
+(16, 'as', '', 1, 0, 0, 0, 0),
+(17, 'ad', '', 1, 0, 0, 0, 0),
+(18, '', '', 0, 0, 0, 0, 0),
+(19, 'aas', '', 1, 0, 0, 0, 0),
+(20, 'mkdhfi', '', 2, 0, 0, 0, 0),
+(21, 'as', '', 1, 0, 0, 0, 0),
+(22, 'sfm', '', 3, 0, 0, 0, 0),
+(23, 'sojko', '', 1, 0, 0, 0, 0),
+(24, 'ch', '', 0, 0, 0, 0, 0),
+(25, 'sonia', '', 4, 0, 0, 0, 0),
+(26, 'radhika', '2', 2, 3, 5, 0, 0),
+(27, 'fdh', '', 1, 0, 0, 0, 0),
+(28, 'pooja ', '2', 0, 2, 2, 0, 0),
+(29, 'rashmi', '5', 1, 5, 3, 5, 0),
+(30, 'rashmi', '5', 1, 5, 3, 5, 0),
+(31, 'krima', '', 2, 0, 0, 0, 0),
+(32, 'krima', '', 2, 0, 0, 0, 0),
+(33, 'df', '', 0, 0, 0, 0, 0),
+(34, 'xg', '', 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `register`
 --
 
-CREATE TABLE IF NOT EXISTS `register` (
+CREATE TABLE `register` (
   `user_id` int(11) NOT NULL,
   `username` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
@@ -188,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `register` (
   `dob` date NOT NULL,
   `type` varchar(15) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `register`
@@ -196,7 +255,9 @@ CREATE TABLE IF NOT EXISTS `register` (
 
 INSERT INTO `register` (`user_id`, `username`, `email`, `contact`, `dob`, `type`, `password`) VALUES
 (1, 'krima', 'krima.shah@ves.ac.in', '7894561320', '1996-04-23', 'Startup Planner', '$2y$10$yXUHWRM9NyKmO4sqPrPF.udklgCg4IYHBlC9ORPHy/EL1V7vi2aLO'),
-(2, 'krima', 'krima.shah@gmail.com', '784596123', '1996-04-23', 'Intern', '$2y$10$Q4XXMUrzzWHgRLB5lYObrerNdcSrZT7HGEFX4gMlJyjQjWbWCq1r2');
+(2, 'krima', 'krima.shah@gmail.com', '784596123', '1996-04-23', 'Intern', '$2y$10$Q4XXMUrzzWHgRLB5lYObrerNdcSrZT7HGEFX4gMlJyjQjWbWCq1r2'),
+(3, 'bhavna', 'bhavna.khatwani@ves.ac.in', '8975641235', '1997-04-27', 'Intern', '$2y$10$RQ.BhJFrJm9xo4pGXQb8g.uAf63tZJ5QLDmLQ2uQrCBwYtHdlcHm.'),
+(4, 'dhiren', 'dhiren@gmail.com', '5678945126', '1999-07-13', 'Startup Planner', '$2y$10$uc./aX5mCtuyT1djcJLvuugT1egFUykoym9mOXbMZQRqioDH5jFzO');
 
 --
 -- Indexes for dumped tables
@@ -208,6 +269,12 @@ INSERT INTO `register` (`user_id`, `username`, `email`, `contact`, `dob`, `type`
 ALTER TABLE `naming`
   ADD PRIMARY KEY (`name_id`),
   ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `predict`
+--
+ALTER TABLE `predict`
+  ADD PRIMARY KEY (`predict_id`);
 
 --
 -- Indexes for table `register`
@@ -225,12 +292,18 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `naming`
 --
 ALTER TABLE `naming`
-  MODIFY `name_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=138;
+  MODIFY `name_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+--
+-- AUTO_INCREMENT for table `predict`
+--
+ALTER TABLE `predict`
+  MODIFY `predict_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
