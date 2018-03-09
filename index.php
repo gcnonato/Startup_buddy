@@ -4,10 +4,9 @@ session_start();
 
 require_once 'connect.php';
 
-
 if (isset($_SESSION['userSession'])!="") 
 {
-	header("Location: welcome.php");
+	header("Location: home.php");
 	
 exit;
 
@@ -39,7 +38,7 @@ if (password_verify($password, $row['password']) && $count==1) {
 		
 $_SESSION['userSession'] = $row['user_id'];
 		
-header("Location: welcome.php");
+header("Location: home.php");
 	
 } 
 else
@@ -47,7 +46,7 @@ else
 		
 $msg = "<div class='alert alert-danger'>
 					
-<span class='glyphicon glyphicon-info-sign'></span> &nbsp; Invalid Username orPassword!
+<span class='glyphicon glyphicon-info-sign'></span> &nbsp; Invalid Username or Password!
 </div>";
 	
 }
@@ -63,7 +62,15 @@ $DBcon->close();
 <head>
 
 
-<title>Startup Buddy</title>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="css/home.css">
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
@@ -71,9 +78,49 @@ $DBcon->close();
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
+
+
 </head>
 
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<div class="jumbotron text-center">
+  <h1>Start-Up Buddy</h1> 
+  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
+  </div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="home.html">Home</a></li>
+        <li><a href="about.php">About</a></li>
+         <li>
+<a href="#services">Services <span class="arrow">&#9660;</span></a>
+<ul class="sub-menu">
+<li><a href="recom.php">Get Startup Ideas</a></li>
+<li><a href="naming.php">Naming</a></li>
+<li><a href="#">Logo</a></li>
+<li><a href="domain.php">Domain</a></li>
+<li><a href="#">Marketing</a></li>
+<li><a href="#">Hire Interns</a></li>
+</ul>
+</li>
+        
+        <li><a href="contact.php">Contact</a></li>
+        <li><a href="register.php">Register</a></li>
+        <li><a href="index.php">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
 <div class="signin-form">
@@ -107,12 +154,10 @@ echo $msg;
 
 <input type="password" class="form-control" placeholder="Password" name="password" required />
         
-</div>
-       
+</div>      
      	
 <hr />
-        
-        
+       
 <div class="form-group">
             
 <button type="submit" class="btn btn-default" name="btn-login" id="btn-login">
@@ -120,25 +165,16 @@ echo $msg;
 <span class="glyphicon glyphicon-log-in"></span> &nbsp; Log In
 	</button> &nbsp;&nbsp;&nbsp;
              
-<a href="welcome.html" class="btn btn-default" style="float:right;">Cancel</a>
-            
+<a href="home.html" class="btn btn-default" style="float:right;">Cancel</a>           
 <a href="register.php" class="btn btn-default">Register Here</a>
-            
-        
-</div>  
-        
-        
-      
-      
-</form>
-
-    
+                   
+</div>      
+</form>    
 </div>
-    
-
 </div>
-
+<?php
+include_once 'footer.php';
+?>
 
 </body>
-
 </html>
