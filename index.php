@@ -64,11 +64,11 @@ $DBcon->close();
 
 <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.3.3.7.min.css">
+  <link href="css/Montserrat.css" rel="stylesheet" type="text/css">
+  <link href="css/Lato.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery.3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.3.3.7.min.js"></script>
   
   <link rel="stylesheet" href="css/home.css">
 
@@ -77,8 +77,6 @@ $DBcon->close();
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 
 <link rel="stylesheet" href="style.css" type="text/css" />
-
-
 
 </head>
 
@@ -110,7 +108,7 @@ $DBcon->close();
 <li><a href="#">Logo</a></li>
 <li><a href="domain.php">Domain</a></li>
 <li><a href="#">Marketing</a></li>
-<li><a href="#">Hire Interns</a></li>
+<li><a href="postjob.php">Hire Interns</a></li>
 </ul>
 </li>
         
