@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2018 at 07:08 PM
+-- Generation Time: Mar 31, 2018 at 12:01 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.0.20
 
@@ -179,6 +179,35 @@ INSERT INTO `naming` (`name_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `post_job`
+--
+
+CREATE TABLE `post_job` (
+  `Job_Id` int(11) NOT NULL,
+  `Email` varchar(60) CHARACTER SET utf8 NOT NULL,
+  `Company_Name` varchar(50) NOT NULL,
+  `About_Company` varchar(1000) NOT NULL,
+  `Job_Description` varchar(1000) NOT NULL,
+  `No_of_Jobs_Available` int(2) NOT NULL,
+  `Who_Can_Apply` varchar(500) NOT NULL,
+  `Start_Date` date NOT NULL,
+  `Apply_By` date NOT NULL,
+  `Location` varchar(50) NOT NULL,
+  `Type_of_Job` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post_job`
+--
+
+INSERT INTO `post_job` (`Job_Id`, `Email`, `Company_Name`, `About_Company`, `Job_Description`, `No_of_Jobs_Available`, `Who_Can_Apply`, `Start_Date`, `Apply_By`, `Location`, `Type_of_Job`) VALUES
+(1, 'krima.shah@ves.ac.in', 'abc', 'abc', 'abc', 1, 'abc', '2018-04-16', '2018-03-06', 'mumbai', 'Work From Home,Full Time Job,'),
+(2, 'krima.shah@ves.ac.in', 'xyz', 'xyz', 'xyz', 1, 'xyz', '2018-04-20', '2018-03-05', 'nasik', 'Full Time Job,'),
+(5, 'shahkrima2304@gmail.com', 'axw', 'axs', 'dgsk', 2, 'sgs', '2018-03-30', '2018-03-29', 'mumbai', 'Full Time Job,');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `predict`
 --
 
@@ -231,7 +260,9 @@ INSERT INTO `predict` (`predict_id`, `name`, `fashion`, `sports`, `entartainment
 (31, 'krima', '', 2, 0, 0, 0, 0),
 (32, 'krima', '', 2, 0, 0, 0, 0),
 (33, 'df', '', 0, 0, 0, 0, 0),
-(34, 'xg', '', 0, 0, 0, 0, 0);
+(34, 'xg', '', 0, 0, 0, 0, 0),
+(35, 'shilpa', '', 5, 0, 0, 0, 0),
+(36, 'g', '', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -271,6 +302,12 @@ ALTER TABLE `naming`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `post_job`
+--
+ALTER TABLE `post_job`
+  ADD PRIMARY KEY (`Job_Id`);
+
+--
 -- Indexes for table `predict`
 --
 ALTER TABLE `predict`
@@ -294,10 +331,15 @@ ALTER TABLE `register`
 ALTER TABLE `naming`
   MODIFY `name_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 --
+-- AUTO_INCREMENT for table `post_job`
+--
+ALTER TABLE `post_job`
+  MODIFY `Job_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `predict`
 --
 ALTER TABLE `predict`
-  MODIFY `predict_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `predict_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `register`
 --
