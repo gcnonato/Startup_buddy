@@ -29,7 +29,7 @@ foreach($checkbox1 as $chk1)
       $chk .= $chk1.","; 
    }  
 
-$in_ch=mysqli_query($DBcon,"INSERT INTO request_quote(Email,Company_Name,About_Company,Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Email','$Company_Name','$About_Company','$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");  
+$in_ch=mysqli_query($DBcon,"INSERT INTO post_job(Email,Company_Name,About_Company,Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Email','$Company_Name','$About_Company','$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");  
   
   if($in_ch==1)  
    {  
