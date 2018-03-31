@@ -59,14 +59,14 @@ if(isset($_POST['btn-signup'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="Keywords" content="cheap car deals, hire car deals, best hire car deals, car vendors, cheap cars, car rentals com, rental car sales, car rental, car rentals">
+  <meta name="Keywords" content="Startup, naming, domain purchaser, logo, marketing, internship, success rate">
 <title> Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.3.3.7.min.css">
+  <link href="css/Montserrat.css" rel="stylesheet" type="text/css">
+  <link href="css/Lato.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery.3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.3.3.7.min.js"></script>
   
   <link rel="stylesheet" href="css/home.css">
 
@@ -146,7 +146,7 @@ if(isset($_POST['btn-signup'])) {
 <li><a href="#">Logo</a></li>
 <li><a href="domain.php">Domain</a></li>
 <li><a href="#">Marketing</a></li>
-<li><a href="#">Hire Interns</a></li>
+<li><a href="postjob.php">Hire Interns</a></li>
 </ul>
 </li>
         
@@ -189,7 +189,7 @@ if(isset($_POST['btn-signup'])) {
      
         <div class="form-group">
         	<label for="dob" >Date of Birth:&nbsp;</label>
-        <input type="date"  name="dob" style="width: 25%" required  />
+        <input type="date" class="form-control" name="dob" style="width: 25%" required  />
        </div>
      
      <div class="form-group">
