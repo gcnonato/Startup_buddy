@@ -31,42 +31,31 @@ $DBcon->close();
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#myPage"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-      <li><a href="home.php">Home</a></li>
-        <li><a href="#about">About</a></li>
-
-        <li>
-<a href="#services">Services <span class="arrow">&#9660;</span></a>
-<ul class="sub-menu">
-<li><a href="recom.php">Get Startup Ideas</a></li>
-<li><a href="naming.php">Naming</a></li>
-<li><a href="#">Logo</a></li>
-<li><a href="domain.php">Domain</a></li>
-<li><a href="#">Marketing</a></li>
-<li><a href="postjob.php">Hire Interns</a></li>
-</ul>
-</li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="" ><span class="glyphicon glyphicon-user"></span> 
-  Hello <?php echo $userRow['username'];?></a></li>
-
-        <li><a  onclick="window.location.href='logout.php?logout'">Logout</a></li>
+        <div id='cssmenu' class="navbar-fixed-top">
+<ul>
+   <li><a href='home.html'><span>Home</span></a></li>
+   <li><a href="#about">About</a></li>
+   <li class='active has-sub'><a href='#services'><span>Services</span></a>
+      <ul>
+         <li class='has-sub'><a href='recom.php'><span>Get Startup Ideas</span></a></li>
+         <li class='has-sub'><a href='naming.php'><span>Naming</span></a></li>
+         <li class='has-sub'><a href=''><span>Logo</span></a></li>
+         <li class='has-sub'><a href='domain.php'><span>Domain</span></a></li>
+         <li class='has-sub'><a href=''><span>Marketing</span></a></li>
+         <li class='has-sub'><a href='#'><span>Hire Interns</span></a>
+            <ul>
+               <li><a href='postjob.php'><span>Post Job</span></a></li>
+               <li class='last'><a href='edit.php'><span>Edit Posted Job</span></a></li>
+            </ul>
+         </li>
       </ul>
-    </div>
-  </div>
-</nav>
-
+   </li>
+   <li><a href='#contact'><span>Contact</span></a></li>
+   <li><a href=''><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
+   <li class='last'><a onclick="window.location.href='logout.php?logout'" >Logout</a></li>
+</ul>
+</div>
+      
 <div class="jumbotron text-center">
   <h1>Startup Buddy</h1> 
   <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
