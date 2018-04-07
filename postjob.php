@@ -16,6 +16,7 @@ if(isset($_POST['post_job'])) {
   $Email=$_POST['Email'];
   $Company_Name=$_POST['Company_Name'];
   $About_Company=$_POST['About_Company'];
+  $Job_Post=$_POST['Job_Post'];
   $Job_Description=$_POST['Job_Description'];
   $No_of_Jobs_Available=$_POST['No_of_Jobs_Available'];
   $Who_Can_Apply=$_POST['Who_Can_Apply'];
@@ -29,7 +30,7 @@ foreach($checkbox1 as $chk1)
       $chk .= $chk1.","; 
    }  
 
-$in_ch=mysqli_query($DBcon,"INSERT INTO post_job(Email,Company_Name,About_Company,Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Email','$Company_Name','$About_Company','$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");  
+$in_ch=mysqli_query($DBcon,"INSERT INTO post_job(Email,Company_Name,About_Company,Job_Post,Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Email','$Company_Name','$About_Company','$Job_Post',$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");  
   
   if($in_ch==1)  
    {  
@@ -124,7 +125,11 @@ else
   });
 </script>
 
-
+        <div class="form-group">
+          <label for="Job_Post" >Job Post:&nbsp;</label>
+        <input class="form-control" placeholder="Write The Post for Application." id="Job_Post" name="Job_Post" required/> 
+       </div>
+      
        <div class="form-group">
           <label for="Job_Description" >Job Description:&nbsp;</label>
         <textarea rows="4" cols="100" class="form-control" placeholder="Write About The Job Description(Max 1000 Characters)" id="Job_Description" name="Job_Description" required></textarea>
@@ -179,7 +184,7 @@ else
           <label for="Type_of_Job" >Type of Job:&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <input type="checkbox"  value="Work From Home"  name="Type_of_Job[]"> Work From Home
         <input style="margin-left: 2.5em" type="checkbox"  value="Full Time Job"  name="Type_of_Job[]"> Full Time Job
-        <input style="margin-left: 2.5em" type="checkbox"  value="Internship"  name="Type_of_Job[]"> Intern
+        <input style="margin-left: 2.5em" type="checkbox"  value="Internship"  name="Type_of_Job[]"> Internship
        </div>
   
      	<hr />
