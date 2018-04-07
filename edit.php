@@ -11,11 +11,15 @@ $userRow=$query->fetch_array();
 
 $a=$userRow['email'];
 $result = $DBcon->query("SELECT * FROM post_job WHERE Email='$a'");
+$flag=false;
+$flag1=false;
+$flag2=false;
 
 while ($row = mysqli_fetch_assoc($result)) {
 $Company_Name1= $row['Company_Name'];
 $Email1= $row['Email'];
 $About_Company1= $row['About_Company'];
+$Job_Post1=$row['Job_Post'];
 $Job_Description1= $row['Job_Description'];
 $No_of_Jobs_Available1= $row['No_of_Jobs_Available'];
 $Who_Can_Apply1= $row['Who_Can_Apply'];
@@ -23,11 +27,29 @@ $Start_Date1= $row['Start_Date'];
 $Apply_By1= $row['Apply_By'];
 $Location1= $row['Location'];
 $Type_of_Job1= $row['Type_of_Job'];
+
+$split=explode(',',$Type_of_Job1);
+$size = sizeof($split);
+for($i=0;$i<$size;$i++) 
+{ 
+  if($split[$i]=="Work From Home") 
+  {
+    $flag=true;
+  } 
+  elseif ($split[$i]=="Full Time Job") {
+    $flag1=true;
+  }
+  elseif ($split[$i]=="Internship"){
+    $flag2=true;
+  }
+}
+
 }
 if(isset($_POST['edit_job'])) {
   $Email=$_POST['Email'];
   $Company_Name=$_POST['Company_Name'];
   $About_Company=$_POST['About_Company'];
+  $Job_Post=$_POST['Job_Post'];
   $Job_Description=$_POST['Job_Description'];
   $No_of_Jobs_Available=$_POST['No_of_Jobs_Available'];
   $Who_Can_Apply=$_POST['Who_Can_Apply'];
@@ -41,15 +63,15 @@ foreach($checkbox1 as $chk1)
       $chk .= $chk1.","; 
    } 
 
-$in_ch=mysqli_query($DBcon,"update post_job"." set Email='$Email',Company_Name='$Company_Name',About_Company='$About_Company',Job_Description= '$Job_Description', No_of_Jobs_Available='$No_of_Jobs_Available', Who_Can_Apply='$Who_Can_Apply', Start_Date='$Start_Date', Apply_By='$Apply_By', Location='$Location', Type_of_Job='$chk'"."where Email='$a'");  
+$in_ch=mysqli_query($DBcon,"update post_job"." set Email='$Email',Company_Name='$Company_Name',About_Company='$About_Company',Job_Post='$Job_Post',Job_Description= '$Job_Description', No_of_Jobs_Available='$No_of_Jobs_Available', Who_Can_Apply='$Who_Can_Apply', Start_Date='$Start_Date', Apply_By='$Apply_By', Location='$Location', Type_of_Job='$chk'"."where Email='$a'");  
   
   if($in_ch==1)  
    {  
-      echo'<script>alert("Successfully Posted Job.")</script>';  
+      echo'<script>alert("Successfully Edited Posted Job.")</script>';  
    }  
 else  
    {  
-      echo'<script>alert("Failed To Post")</script>';  
+      echo'<script>alert("Failed To Edit")</script>';  
    }  
 }
 
@@ -131,6 +153,11 @@ $DBcon->close();
   });
 </script>
 
+        <div class="form-group">
+          <label for="Job_Post" >Job Post:&nbsp;</label>
+        <input class="form-control" placeholder="Write The Post for Application." id="Job_Post" name="Job_Post" value="<?php echo $Job_Post1 ?> " required/> 
+       </div>
+      
 
        <div class="form-group">
           <label for="Job_Description" >Job Description:&nbsp;</label>
@@ -181,14 +208,52 @@ $DBcon->close();
           <label for="Location" >Location of Job:&nbsp;</label>
         <input type="text" class="form-control" placeholder="Location of Job" name="Location" value="<?php echo $Location1 ?>" required  />
        </div>
+<?php
+       if($flag==true) 
+{
+      ?>
+      <div class="form-group">
+          <label for="Type_of_Job" >Type of Job:&nbsp;</label>
+  <input  type='checkbox' name='Type_of_Job[]' value="Work From Home" checked  > Work From Home 
+  <?php
+  $flag=false;
+} 
+else 
+{ 
+  ?>
+  <input  type='checkbox' name='Type_of_Job[]' value="Work From Home"> Work From Home 
+  <?php
+}
+if($flag1==true) 
+{
+      ?>
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Full Time Job" checked  >  Full Time Job 
+  <?php
+  $flag1=false;
+} 
+else 
+{ 
+  ?>
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Full Time Job"> Full Time Job 
+  <?php
+}
+if($flag2==true) 
+{
+      ?>
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Intern" checked  >Internship 
+  <?php
+  $flag2=false;
+} 
+else 
+{ 
+  ?>
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Intern"> Internship 
+  <?php
+}
 
-       <div class="form-group">
-          <label for="Type_of_Job" >Type of Job:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <input type="checkbox"  value="Work From Home"  name="Type_of_Job[]" > Work From Home
-        <input style="margin-left: 2.5em" type="checkbox"  value="Full Time Job"  name="Type_of_Job[]"> Full Time Job
-        <input style="margin-left: 2.5em" type="checkbox"  value="Internship"  name="Type_of_Job[]"> Intern
-       </div>
-  
+?>
+</div>
+
       <hr />
         
         <div class="form-group">
