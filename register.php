@@ -77,24 +77,17 @@ if(isset($_POST['btn-signup'])) {
 <style >
 	
 
-.label:after{
-     content:"*" ;
-     color:red   
-     }
-
-     /* The message box is shown when the user clicks on the password field */
 
 #message {
     display:none;
     color: #000;
     text-align: center;
-    
-    
+    width:40%;
 }
 
 #message p {
     
-    font-size: 18px;
+    font-size: 15px;
 }
 
 /* Add a green text color and a checkmark when the requirements are right */
@@ -121,7 +114,7 @@ if(isset($_POST['btn-signup'])) {
 
 <div class="jumbotron text-center">
   <h1>Start-Up Buddy</h1> 
-  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
+  <p>A website which will be a perfect guide for the people who are going to start a Startup.</p> 
   </div>
   <div id='cssmenu' class="navbar-fixed-top">
 <ul>
@@ -143,7 +136,7 @@ if(isset($_POST['btn-signup'])) {
       </ul>
    </li>
    <li><a href='contact.php'><span>Contact</span></a></li>
-   <li><a href='register.php'><span>Register</span></a></li>
+   <li><a style="margin-left: 21em" href='register.php'><span>Register</span></a></li>
    <li class='last'><a href='index.php'><span>Login</span></a></li>
 </ul>
 </div>
@@ -193,11 +186,12 @@ if(isset($_POST['btn-signup'])) {
         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  />
         </div>
 
-        <input type="checkbox" onclick="myFunction()">Show Password
+        <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show Password
         <script>
         function myFunction() {
         var x = document.getElementById("password");
-        if (x.type === "password") {
+        var y = document.getElementById("confirm_password");
+        if (x.type == "password") {
         x.type = "text";
          } else {
         x.type = "password";
@@ -205,11 +199,31 @@ if(isset($_POST['btn-signup'])) {
         }
 		</script><br><br>
 
+    <div class="alert alert-info" id="message">
+    <strong>Password Essentials!</strong> 
+    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+  </div>
+  
+   
 		<div class="form-group">
         <input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" name="confirm_password"
         onkeyup="checkPass(); return false;" required  />
         <span id="confirmMessage" class="confirmMessage"></span>
         </div>
+        <input type="checkbox" onclick="myFunction1()">&nbsp;&nbsp;Show Password
+        <script>
+        function myFunction1() {
+        var x = document.getElementById("confirm_password");
+        if (x.type == "password") {
+        x.type = "text";
+         } else {
+        x.type = "password";
+        }
+        }
+    </script>
 
         <script type="text/javascript">
 	function checkPass()
@@ -256,13 +270,7 @@ if(isset($_POST['btn-signup'])) {
       
       </form>
 
-      <div id="message">
-  <h3>Password must contain the following:</h3>
-  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  <p id="number" class="invalid">A <b>number</b></p>
-  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-</div>
+      
 
   
   <script>
@@ -324,9 +332,6 @@ myInput.onkeyup = function() {
   }
 }
 </script>
-
-
-
     </div>
     
 </div>
