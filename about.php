@@ -36,14 +36,14 @@
       </ul>
    </li>
    <li><a href='contact.php'><span>Contact</span></a></li>
-   <li><a href='register.php'><span>Register</span></a></li>
+   <li><a style="margin-left: 21em" href='register.php'><span>Register</span></a></li>
    <li class='last'><a href='index.php'><span>Login</span></a></li>
 </ul>
 </div>
 
 <div class="jumbotron text-center">
   <h1>Startup Buddy</h1> 
-  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
+  <p>A website which will be a perfect guide for the people who are going to start a Startup.</p> 
   
 </div>
 
