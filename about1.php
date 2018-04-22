@@ -1,5 +1,5 @@
 <?php
-include_once 'connect.php';
+include_once 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,18 +15,6 @@ include_once 'connect.php';
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 
-<div class="jumbotron text-center">
-  <h1>Startup Buddy</h1> 
-  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
-  <form style="margin: 0 300px">
-    <div class="input-group">
-      <input type="email" class="form-control" size="50"  placeholder="Email Address" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Subscribe</button>
-      </div>
-    </div>
-  </form>
-</div>
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
@@ -40,7 +28,7 @@ include_once 'connect.php';
     in the process of building one. We don’t have all of the answers but we’re confident this website
     will put you on a much better path and help you avoid many obstacles.</p> 
       <p>We provide you with everything that you need to start and grow.</p>
-      <br><a href="#contact" button class="btn btn-default btn-lg">Get in Touch</button></a>
+      <br><a href="contact1.php" button class="btn btn-default btn-lg">Get in Touch</button></a>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-signal logo"></span>
