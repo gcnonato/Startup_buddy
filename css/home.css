@@ -174,12 +174,12 @@ body {
 #cssmenu ul li,
 #cssmenu ul li a {
   padding: 0;
-  margin: 0;
-  line-height: 1.42857143 !important;
+  margin: 10;
+  line-height: 1.42857143 ;
   letter-spacing: 3px;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
-  font-size: 16px !important;
+  font-size: 16px ;
   color: white;
   -webkit-transition: all ease .3s;
   -o-transition: all ease .3s;
@@ -188,6 +188,7 @@ body {
   transition: all ease .3s;
   background-color: #4090CA;
   z-index: 9999;
+  
 }
 #cssmenu a {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
