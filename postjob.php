@@ -1,18 +1,14 @@
 <?php
 session_start();
 include_once 'connect.php';
-
 if (!isset($_SESSION['userSession'])) {
   header("Location: index.php");
 }
-
 $query = $DBcon->query("SELECT * FROM register WHERE user_id=".$_SESSION['userSession']);
 $userRow=$query->fetch_array();
-
-
 if(isset($_POST['post_job'])) {
-	
-	
+  
+  
   $Email=$_POST['Email'];
   $Company_Name=$_POST['Company_Name'];
   $About_Company=$_POST['About_Company'];
@@ -29,7 +25,6 @@ foreach($checkbox1 as $chk1)
    {  
       $chk .= $chk1.","; 
    }  
-
 $in_ch=mysqli_query($DBcon,"INSERT INTO post_job(Email,Company_Name,About_Company,Job_Post,Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Email','$Company_Name','$About_Company','$Job_Post',$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");  
   
   if($in_ch==1)  
@@ -40,8 +35,7 @@ else
    {  
       echo'<script>alert("Failed To Post")</script>';  
    }  
-
-	$DBcon->close();
+  $DBcon->close();
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -91,13 +85,13 @@ else
       </ul>
    </li>
    <li><a href='contact1.php'><span>Contact</span></a></li>
-   <li><a href=''><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
+   <li><a href='' style="margin-left: 18em"><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
    <li class='last'><a onclick="window.location.href='logout.php?logout'" >Logout</a></li>
 </ul>
 </div>
 
 <div class="signin-form">
-	<div class="container">  
+  <div class="container">  
        <form class="form-signin" action="" method="post" id="register-form">
         <h2 class="form-signin-heading">Post A Job</h2><hr />
          
@@ -166,7 +160,7 @@ else
 
 
         <div class="form-group">
-        	<label for="Start_Date" >Start Date:&nbsp;</label>
+          <label for="Start_Date" >Start Date:&nbsp;</label>
         <input type="date" class="form-control"  name="Start_Date" style="width: 25%" required  />
        </div>
 
@@ -187,11 +181,11 @@ else
         <input style="margin-left: 2.5em" type="checkbox"  value="Internship"  name="Type_of_Job[]"> Internship
        </div>
   
-     	<hr />
+      <hr />
         
         <div class="form-group">
             <button style="align-self: center;" type="submit" class="btn btn-default" name="post_job"> Post Job
-			</button> &nbsp; &nbsp;  
+      </button> &nbsp; &nbsp;  
 </div>
             
       </form>
