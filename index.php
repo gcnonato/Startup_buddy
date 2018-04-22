@@ -26,21 +26,22 @@ $email = $DBcon->real_escape_string($email);
 $password = $DBcon->real_escape_string($password);
 	
 	
-$query = $DBcon->query("SELECT user_id, email, password FROM register WHERE email='$email'");
+$query = $DBcon->query("SELECT * FROM register WHERE email='$email'");
 	
 $row=$query->fetch_array();
-	
+$type=$row['type'];	
 	
 $count = $query->num_rows; // if email/password are correct returns must be 1 row
 	
 	
 if (password_verify($password, $row['password']) && $count==1) {
-		
-$_SESSION['userSession'] = $row['user_id'];
-		
-header("Location: home.php");
-	
-} 
+  $_SESSION['userSession'] = $row['user_id'];
+ if ($type=='Startup Planner')
+    header("Location: home.php");
+elseif($type=='Intern')
+    header("Location: index_Intern.php");
+  	}
+ 
 else
  {
 		
@@ -84,7 +85,7 @@ $DBcon->close();
 
 <div class="jumbotron text-center">
   <h1>Start-Up Buddy</h1> 
-  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
+  <p>A website which will be a perfect guide for the people who are going to start a Startup.</p> 
   </div>
   <div id='cssmenu' class="navbar-fixed-top">
 <ul>
@@ -105,8 +106,8 @@ $DBcon->close();
          </li>
       </ul>
    </li>
-   <li><a href='contact.php'><span>Contact</span></a></li>
-   <li><a href='register.php'><span>Register</span></a></li>
+   <li><a href='contact.php' ><span>Contact</span></a></li>
+   <li><a style="margin-left: 21em" href='register.php'><span>Register</span></a></li>
    <li class='last'><a href='index.php'><span>Login</span></a></li>
 </ul>
 </div>
@@ -141,9 +142,20 @@ echo $msg;
 
 <div class="form-group">
 
-<input type="password" class="form-control" placeholder="Password" name="password" required />
+<input type="password" class="form-control" placeholder="Password" id="password" name="password" required />
         
-</div>      
+</div>  
+<input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show Password
+        <script>
+        function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+        x.type = "text";
+         } else {
+        x.type = "password";
+        }
+        }
+    </script>   
      	
 <hr />
        
