@@ -29,7 +29,7 @@ $DBcon->close();
 
 <div class="jumbotron text-center">
   <h1>Startup Buddy</h1> 
-  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
+  <p>A website which will be a perfect guide for the people who are going to start a Startup.</p> 
   </div>
   <div id='cssmenu' class="navbar-fixed-top">
 <ul>
@@ -51,7 +51,7 @@ $DBcon->close();
       </ul>
    </li>
    <li><a href='contact1.php'><span>Contact</span></a></li>
-   <li><a href=''><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
+   <li><a href='' style="margin-left: 18em"><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
    <li class='last'><a onclick="window.location.href='logout.php?logout'" >Logout</a></li>
 </ul>
 </div>
