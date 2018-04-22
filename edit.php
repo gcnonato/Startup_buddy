@@ -11,6 +11,7 @@ $userRow=$query->fetch_array();
 
 $a=$userRow['email'];
 $result = $DBcon->query("SELECT * FROM post_job WHERE Email='$a'");
+$count = $result->num_rows;
 $flag=false;
 $flag1=false;
 $flag2=false;
@@ -43,8 +44,8 @@ for($i=0;$i<$size;$i++)
     $flag2=true;
   }
 }
-
 }
+
 if(isset($_POST['edit_job'])) {
   $Email=$_POST['Email'];
   $Company_Name=$_POST['Company_Name'];
@@ -68,6 +69,7 @@ $in_ch=mysqli_query($DBcon,"update post_job"." set Email='$Email',Company_Name='
   if($in_ch==1)  
    {  
       echo'<script>alert("Successfully Edited Posted Job.")</script>';  
+
    }  
 else  
    {  
@@ -75,6 +77,21 @@ else
    }  
 }
 
+if(isset($_POST['delete_job']))
+{
+  $in_ch=mysqli_query($DBcon,"DELETE FROM post_job WHERE Email = '$a'");
+  if($in_ch==1)  
+   {  
+      echo'<script>alert("Successfully Removed Posted Job.");
+      window.location.href="home.php";
+      </script>';
+       
+   }  
+else  
+   {  
+      echo'<script>alert("Failed To Remove.")</script>';  
+   } 
+}
 $DBcon->close();
 ?>
 
@@ -97,7 +114,7 @@ $DBcon->close();
 
 <div class="jumbotron text-center">
   <h1>Startup Buddy</h1> 
-  <p>A website which will be a perfect guide for the people who are going to start a start-up.</p> 
+  <p>A website which will be a perfect guide for the people who are going to start a Startup.</p> 
   </div>
   <div id='cssmenu' class="navbar-fixed-top">
 <ul>
@@ -119,7 +136,7 @@ $DBcon->close();
       </ul>
    </li>
    <li><a href='contact1.php'><span>Contact</span></a></li>
-   <li><a href=''><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
+   <li><a href='' style="margin-left: 18em" ><span class="glyphicon glyphicon-user"></span>Hello <?php echo $userRow['username'];?></a></li>
    <li class='last'><a onclick="window.location.href='logout.php?logout'" >Logout</a></li>
 </ul>
 </div>
@@ -127,21 +144,31 @@ $DBcon->close();
 <div class="signin-form">
   <div class="container">  
        <form class="form-signin" action="" method="post" id="register-form">
-        <h2 class="form-signin-heading"> Edit Posted Job</h2><hr />
+<?php        if($count==0)
+{
+  
+?>
+  <div class="alert alert-info" id="message">
+    <strong>No Job Posted!!!</strong> 
+  </div>
+  <?php  
+}
+?>
+        <h2 class="form-signin-heading"> Edit/Delete Posted Job</h2><hr />
          
         <div class="form-group">
           <label for="Company_Name" >Company Name:&nbsp;</label>
-        <input type="text" class="form-control" placeholder="Enter your Company Name" name="Company_Name" value="<?php echo $Company_Name1 ?>" required  />
+        <input type="text" class="form-control" placeholder="Enter your Company Name" name="Company_Name" value="<?php if ($count==0) echo ""; else echo $Company_Name1 ?>" required  />
        </div>
 
         <div class="form-group">
           <label for="Email" >Email:&nbsp;</label>
-        <input type="email" class="form-control" placeholder="Enter Email address for Communication" name="Email" value="<?php echo $Email1 ?>" required  />
+        <input type="email" class="form-control" placeholder="Enter Email address for Communication" name="Email" value="<?php if ($count==0) echo ""; else echo $Email1 ?>" required  />
         </div>
 
         <div class="form-group">
           <label for="About_Company" >About Company:&nbsp;</label>
-        <textarea rows="4" cols="100" class="form-control" placeholder="Write Something About Your Company (Max 1000 Characters)" id="About_Company" name="About_Company" required> <?php echo $About_Company1 ?> </textarea>
+        <textarea rows="4" cols="100" class="form-control" placeholder="Write Something About Your Company (Max 1000 Characters)" id="About_Company" name="About_Company" required> <?php if ($count==0) echo ""; else echo $About_Company1 ?> </textarea>
         <div class="result1">0 chars</div>
        </div>
        <script>
@@ -155,13 +182,13 @@ $DBcon->close();
 
         <div class="form-group">
           <label for="Job_Post" >Job Post:&nbsp;</label>
-        <input class="form-control" placeholder="Write The Post for Application." id="Job_Post" name="Job_Post" value="<?php echo $Job_Post1 ?> " required/> 
+        <input class="form-control" placeholder="Write The Post for Application." id="Job_Post" name="Job_Post" value="<?php if ($count==0) echo ""; else echo $Job_Post1 ?> " required/> 
        </div>
       
 
        <div class="form-group">
           <label for="Job_Description" >Job Description:&nbsp;</label>
-        <textarea rows="4" cols="100" class="form-control" placeholder="Write About The Job Description(Max 1000 Characters)" id="Job_Description" name="Job_Description" required> <?php echo $Job_Description1 ?> </textarea>
+        <textarea rows="4" cols="100" class="form-control" placeholder="Write About The Job Description(Max 1000 Characters)" id="Job_Description" name="Job_Description" required> <?php if ($count==0) echo ""; else echo $Job_Description1 ?> </textarea>
         <div class="result2">0 chars</div>
        </div>
       <script>
@@ -176,12 +203,12 @@ $DBcon->close();
 
        <div class="form-group">
           <label for="No_of_Jobs_Available" >Number of Jobs Available:&nbsp;</label>
-        <input type="text" class="form-control" placeholder="Enter Vacany Count" name="No_of_Jobs_Available" value="<?php echo $No_of_Jobs_Available1 ?>" required  />
+        <input type="text" class="form-control" placeholder="Enter Vacany Count" name="No_of_Jobs_Available" value="<?php if ($count==0) echo ""; else echo $No_of_Jobs_Available1 ?>" required  />
        </div>
 
        <div class="form-group">
           <label for="Who_Can_Apply" >Who Can Apply:&nbsp;</label>
-        <textarea rows="4" cols="100" class="form-control" placeholder="What Qualities Should Candidate Have to Apply?(Max 500 Characters)" id="Who_Can_Apply" name="Who_Can_Apply" required ><?php echo $Who_Can_Apply1 ?> </textarea>
+        <textarea rows="4" cols="100" class="form-control" placeholder="What Qualities Should Candidate Have to Apply?(Max 500 Characters)" id="Who_Can_Apply" name="Who_Can_Apply" required ><?php if ($count==0) echo ""; else echo $Who_Can_Apply1 ?> </textarea>
         <div class="result3">0 chars</div>
        </div>
        <script>
@@ -196,17 +223,17 @@ $DBcon->close();
 
         <div class="form-group">
           <label for="Start_Date" >Start Date:&nbsp;</label>
-        <input type="date" class="form-control" name="Start_Date" value="<?php echo $Start_Date1 ?>" style="width: 25%" required  />
+        <input type="date" class="form-control" name="Start_Date" value="<?php if ($count==0) echo ""; else echo $Start_Date1 ?>" style="width: 25%" required  />
        </div>
 
        <div class="form-group">
           <label for="Apply_By" >Apply By Date:&nbsp;</label>
-        <input type="date" class="form-control"  name="Apply_By" value="<?php echo $Apply_By1 ?>" style="width: 25%" required  />
+        <input type="date" class="form-control"  name="Apply_By" value="<?php if ($count==0) echo ""; else echo $Apply_By1 ?>" style="width: 25%" required  />
        </div>
      
      <div class="form-group">
           <label for="Location" >Location of Job:&nbsp;</label>
-        <input type="text" class="form-control" placeholder="Location of Job" name="Location" value="<?php echo $Location1 ?>" required  />
+        <input type="text" class="form-control" placeholder="Location of Job" name="Location" value="<?php if ($count==0) echo ""; else echo $Location1 ?>" required  />
        </div>
 <?php
        if($flag==true) 
@@ -214,40 +241,40 @@ $DBcon->close();
       ?>
       <div class="form-group">
           <label for="Type_of_Job" >Type of Job:&nbsp;</label>
-  <input  type='checkbox' name='Type_of_Job[]' value="Work From Home" checked  > Work From Home 
+  <input  type='checkbox' name='Type_of_Job[]' value="<?php if ($count==0) echo ""; else echo "Work From Home" ?>" checked  > Work From Home 
   <?php
   $flag=false;
 } 
 else 
 { 
   ?>
-  <input  type='checkbox' name='Type_of_Job[]' value="Work From Home"> Work From Home 
+  <input  type='checkbox' name='Type_of_Job[]' value="<?php if ($count==0) echo ""; else echo "Work From Home" ?>"> Work From Home 
   <?php
 }
 if($flag1==true) 
 {
       ?>
-  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Full Time Job" checked  >  Full Time Job 
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="<?php if ($count==0) echo ""; else echo "Full Time Job" ?>" checked  >  Full Time Job 
   <?php
   $flag1=false;
 } 
 else 
 { 
   ?>
-  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Full Time Job"> Full Time Job 
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="<?php if ($count==0) echo ""; else echo "Full Time Job" ?>"> Full Time Job 
   <?php
 }
 if($flag2==true) 
 {
       ?>
-  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Intern" checked  >Internship 
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="<?php if ($count==0) echo ""; else echo "Intern" ?>" checked  >Internship 
   <?php
   $flag2=false;
 } 
 else 
 { 
   ?>
-  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="Intern"> Internship 
+  <input style="margin-left: 2.5em" type='checkbox' name='Type_of_Job[]' value="<?php if ($count==0) echo ""; else echo "Intern" ?>"> Internship 
   <?php
 }
 
@@ -258,7 +285,10 @@ else
         
         <div class="form-group">
             <button style="align-self: center;" type="submit" class="btn btn-default" name="edit_job"> Edit Job Posted
-      </button> &nbsp; &nbsp;  
+      </button> &nbsp; &nbsp;
+      <button style="align-self: center;" type="submit" class="btn btn-default" name="delete_job"> Delete Job
+      </button> &nbsp; &nbsp;
+
 </div>      
       </form>
     </div>
