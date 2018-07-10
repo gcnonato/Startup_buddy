@@ -124,9 +124,9 @@ if(isset($_POST['btn-signup'])) {
       <ul>
          <li class='has-sub'><a href='recom.php'><span>Get Startup Ideas</span></a></li>
          <li class='has-sub'><a href='naming.php'><span>Naming</span></a></li>
-         <li class='has-sub'><a href=''><span>Logo</span></a></li>
+         <li class='has-sub'><a href='logo.php'><span>Logo</span></a></li>
          <li class='has-sub'><a href='domain.php'><span>Domain</span></a></li>
-         <li class='has-sub'><a href=''><span>Marketing</span></a></li>
+         <li class='has-sub'><a href='marketing.php'><span>Marketing</span></a></li>
          <li class='has-sub'><a href='#'><span>Hire Interns</span></a>
             <ul>
                <li><a href='postjob.php'><span>Post Job</span></a></li>
