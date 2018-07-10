@@ -186,7 +186,7 @@ $domaindesc = array(
    <td>'.$r.'</td> 
    <td>'.$desc.'</td>  
     <td>';if ($count==0) {
-       echo "<a href='domain.php'>Available</a>";
+       echo "<a href='domain.php' target='_blank'>Available</a>";
  
         }
         else 
