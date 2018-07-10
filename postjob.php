@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 include_once 'connect.php';
 if (!isset($_SESSION['userSession'])) {
@@ -25,11 +26,16 @@ foreach($checkbox1 as $chk1)
    {  
       $chk .= $chk1.","; 
    }  
-$in_ch=mysqli_query($DBcon,"INSERT INTO post_job(Email,Company_Name,About_Company,Job_Post,Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Email','$Company_Name','$About_Company','$Job_Post',$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");  
   
-  if($in_ch==1)  
-   {  
-      echo'<script>alert("Successfully Posted Job.")</script>';  
+  $in_ch = "INSERT INTO post_job(Company_Name,Email,About_Company,Job_Post, Job_Description,No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES('$Company_Name','$Email','$About_Company','$Job_Post','$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')";
+
+
+  //$in_ch1= mysqli_query($DBcon,"INSERT INTO post_job(Email,Company_Name,About_Company,Job_Post, Job_Description, No_of_Jobs_Available,Who_Can_Apply,Start_Date,Apply_By,Location,Type_of_Job) VALUES ('$Email','$Company_Name','$About_Company','$Job_Post','$Job_Description','$No_of_Jobs_Available','$Who_Can_Apply','$Start_Date','$Apply_By','$Location','$chk')");
+  if ($DBcon->query($in_ch)) {
+    
+      echo'<script>alert("Successfully Posted Job.")
+      window.location.href="home.php";
+      </script>';  
    }  
 else  
    {  
@@ -73,13 +79,13 @@ else
       <ul>
          <li class='has-sub'><a href='recom.php'><span>Get Startup Ideas</span></a></li>
          <li class='has-sub'><a href='naming.php'><span>Naming</span></a></li>
-         <li class='has-sub'><a href=''><span>Logo</span></a></li>
+         <li class='has-sub'><a href='logo.php'><span>Logo</span></a></li>
          <li class='has-sub'><a href='domain.php'><span>Domain</span></a></li>
-         <li class='has-sub'><a href=''><span>Marketing</span></a></li>
+         <li class='has-sub'><a href='marketing.php'><span>Marketing</span></a></li>
          <li class='has-sub'><a href='#'><span>Hire Interns</span></a>
             <ul>
                <li><a href='postjob.php'><span>Post Job</span></a></li>
-               <li class='last'><a href='edit.php'><span>Edit Posted Job</span></a></li>
+               <li class='last'><a href='edit.php'><span>Edit/Delete Posted Job</span></a></li>
             </ul>
          </li>
       </ul>
