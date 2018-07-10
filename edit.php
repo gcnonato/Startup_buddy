@@ -68,7 +68,9 @@ $in_ch=mysqli_query($DBcon,"update post_job"." set Email='$Email',Company_Name='
   
   if($in_ch==1)  
    {  
-      echo'<script>alert("Successfully Edited Posted Job.")</script>';  
+      echo'<script>alert("Successfully Edited Posted Job.")
+      window.location.href="home.php";
+      </script>';  
 
    }  
 else  
@@ -124,13 +126,13 @@ $DBcon->close();
       <ul>
          <li class='has-sub'><a href='recom.php'><span>Get Startup Ideas</span></a></li>
          <li class='has-sub'><a href='naming.php'><span>Naming</span></a></li>
-         <li class='has-sub'><a href=''><span>Logo</span></a></li>
+         <li class='has-sub'><a href='logo.php'><span>Logo</span></a></li>
          <li class='has-sub'><a href='domain.php'><span>Domain</span></a></li>
-         <li class='has-sub'><a href=''><span>Marketing</span></a></li>
+         <li class='has-sub'><a href='marketing.php'><span>Marketing</span></a></li>
          <li class='has-sub'><a href='#'><span>Hire Interns</span></a>
             <ul>
                <li><a href='postjob.php'><span>Post Job</span></a></li>
-               <li class='last'><a href='edit.php'><span>Edit Posted Job</span></a></li>
+               <li class='last'><a href='edit.php'><span>Edit/Delete Posted Job</span></a></li>
             </ul>
          </li>
       </ul>
@@ -284,7 +286,7 @@ else
       <hr />
         
         <div class="form-group">
-            <button style="align-self: center;" type="submit" class="btn btn-default" name="edit_job"> Edit Job Posted
+            <button style="align-self: center; margin-left: 10em" type="submit" class="btn btn-default" name="edit_job"> Edit Job Posted
       </button> &nbsp; &nbsp;
       <button style="align-self: center;" type="submit" class="btn btn-default" name="delete_job"> Delete Job
       </button> &nbsp; &nbsp;
