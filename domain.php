@@ -20,20 +20,24 @@ include 'header.php';
             <div class="col-md-8">
                 <!-- First Registrar Post -->
                 <h2>
-                    <a href="https://in.godaddy.com/">GoDaddy</a>
+                    <a href="https://in.godaddy.com/" target='_blank'>GoDaddy</a>
                 </h2>
                 <hr>
-                <a href="https://in.godaddy.com/">
-                    <img class="img-responsive img-hover" src="images/godaddy.jpg" alt="">
+                <a href="https://in.godaddy.com/" target='_blank'>
+                    <img class="img-responsive img-hover" src="images/godaddy.jpg" alt="" target='_blank'>
                 </a>
                 <hr>
-                <p>.in domain charges- Rs 149 per year</p>
+                <p>.in domain charges- Rs 249 per year</p>
                 <p>.com domain charges- Rs 299 per year</p>
-                <a class="btn btn-primary" href="https://in.godaddy.com/">Visit Site <i class="fa fa-angle-right"></i></a>
+                <p>.info domain charges- Rs 139 per year</p>
+                <p>.online domain charges- Rs 199 per year</p>
+                <p>.co.in domain charges- Rs 99 per year</p>
+                
+                <a class="btn btn-primary" href="https://in.godaddy.com/" target='_blank'>Visit Site <i class="fa fa-angle-right"></i></a>
                 <hr>
                 <!-- Second Registrar Post -->
                 <h2>
-                    <a href="https://www.shopify.in/">Shopify</a>
+                    <a href="https://www.shopify.in/" target='_blank'>Shopify</a>
                 </h2>
                 <hr>
                 <a href="https://www.shopify.in/">
