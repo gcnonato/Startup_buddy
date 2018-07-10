@@ -34,25 +34,24 @@ include_once 'header.php';
 <div class="container">
 <form action="insert.php" method="post">
  <div class="form-group">
- Name:<input type="text" name="name" class="form-control" placeholder="Enter your name" required ><br><br>
+ Name:<input type="text" name="name" class="form-control" placeholder="Enter your name" required > </div>
+ <div class="form-group">
+ Sports:<input type="text" name="sports" class="form-control" placeholder="Rate from 1 to 5" >
  </div>
  <div class="form-group">
- Sports:<input type="text" name="sports" class="form-control" placeholder="Rate from 1 to 5" ><br><br>
- </div>
- <div class="form-group">
-   Fashion:<input type="text" name="fashion" class="form-control" placeholder="Rate from 1 to 5" ><br>
+   Fashion:<input type="text" name="fashion" class="form-control" placeholder="Rate from 1 to 5" >
    </div>
    <div class="form-group">
-    Entertainment:<input type="text" name="entertainment" class="form-control" placeholder="Rate from 1 to 5"><br>
+    Entertainment:<input type="text" name="entertainment" class="form-control" placeholder="Rate from 1 to 5">
     </div>
     <div class="form-group">
-	 Health_and_Care:<input type="text" name="health_and_care" class="form-control" placeholder="Rate from 1 to 5"><br>
+	 Health_and_Care:<input type="text" name="health_and_care" class="form-control" placeholder="Rate from 1 to 5">
  </div>
  <div class="form-group">
-	  Education:<input type="text" name="education" class="form-control" placeholder="Rate from 1 to 5"><br>
+	  Education:<input type="text" name="education" class="form-control" placeholder="Rate from 1 to 5">
   </div>
   <div class="form-group">
-	   Food:<input type="text" name="food" class="form-control" placeholder="Rate from 1 to 5" ><br>
+	   Food:<input type="text" name="food" class="form-control" placeholder="Rate from 1 to 5" >
    </div>
   <input class="form-control" type="submit">
 </form>
